@@ -1,0 +1,8 @@
+AllCops:
+  NewCops: enable
+
+Naming/FileName:
+  Exclude:
+    # This hyphenated entrypoint is the conventional require path for plugin gems.
+    - lib/rubocop-lts-ruby.rb
+

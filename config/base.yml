@@ -1,0 +1,11 @@
+require:
+  - rubocop/lts/ruby/cop/lint_lts_ruby/unavailable_method
+
+Lint/LtsRuby/UnavailableMethod:
+  Description: >-
+    Detect explicit calls to Ruby APIs that were introduced after the configured
+    TargetRubyVersion.
+  Enabled: true
+  VersionAdded: '0.1'
+  AllowedMethods: []
+
