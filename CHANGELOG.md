@@ -90,4 +90,3 @@ Please file a bug if you notice a violation of semantic versioning.
   lockfile parser failures on Git and path dependencies.
 
 ### Security
-

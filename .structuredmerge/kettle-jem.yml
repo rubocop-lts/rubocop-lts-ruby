@@ -92,15 +92,9 @@
 #                              requirement narrowed by framework/engine Gemfiles;
 #                              incompatible ranges remain an error.
 dependency_conflicts:
-  # Review each entry and choose a supported action.
-  # keep_both is for a broad direct requirement plus a compatible modular narrowing.
-  reviewed: false
-  resolve:
-    - gem: version_gem
-      direct: rubocop-lts-ruby.gemspec
-      modular: gemfiles/modular/runtime_heads.gemfile
-      action: review
-      reason: ""
+  # Set true only after every discovered conflict has an intentional action.
+  reviewed: true
+  resolve: []
 # This project's identifying emoji.
 # Used as the leading emoji in the README H1 heading and in the gemspec
 # summary and description. Every gem should have its own unique emoji.
@@ -108,7 +102,7 @@ dependency_conflicts:
 # Set this to a single emoji that represents your gem. Examples: 🪙 🔑 🛠️ 🔮
 # This key is REQUIRED. kettle-jem will abort if it is absent.
 # ENV override: KJ_PROJECT_EMOJI
-project_emoji: ""
+project_emoji: 🛡️
 
 # Engines this project supports.
 # List the Ruby engines that your gem targets. kettle-jem uses this to decide

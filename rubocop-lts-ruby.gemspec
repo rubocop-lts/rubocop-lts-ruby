@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.authors = ["Peter H. Boling"]
   spec.email = ["floss@galtzo.com"]
 
-  spec.summary = "💎 Std Lib Gating Cops-per-each Version of Ruby"
+  spec.summary = "🛡️ Std Lib Gating Cops-per-each Version of Ruby"
   spec.description = <<~DESCRIPTION
     RuboCop cops that detect use of Ruby core and standard library APIs that are
     unavailable for the configured TargetRubyVersion.
