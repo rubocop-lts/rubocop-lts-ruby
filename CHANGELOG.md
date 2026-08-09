@@ -20,6 +20,25 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [0.1.0] - 2026-08-09
+
+- TAG: [v0.1.0][0.1.0t]
+- COVERAGE: 98.68% -- 75/76 lines in 6 files
+- BRANCH COVERAGE: 91.67% -- 11/12 branches in 6 files
+- 44.44% documented
+
+### Added
+
 - Add a LintRoller plugin that gates catalogued Ruby core and standard library APIs by TargetRubyVersion.
 
 - kettle-jem-template-20260720-005 - README Support & Community links now
@@ -53,10 +72,6 @@ Please file a bug if you notice a violation of semantic versioning.
   installing the main Gemfile bundle.
 
 - The LintRoller plugin now supplies only its API-gating rules; TargetRubyVersion remains owned by the consuming RuboCop configuration, and the catalog is audited against the full Ruby 2.0 through 3.4 NEWS.
-
-### Deprecated
-
-### Removed
 
 ### Fixed
 
@@ -99,4 +114,6 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Generated dep-heads workflows now include their checked-in appraisal Gemfile, and Ruby 3.1 stdlib appraisal references resolve to an existing modular Gemfile.
 
-### Security
+[Unreleased]: https://github.com/rubocop-lts/rubocop-lts-ruby/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/rubocop-lts/rubocop-lts-ruby/compare/968b2f62d3056d967753b1ee4fcdc3c958553b87...v0.1.0
+[0.1.0t]: https://github.com/rubocop-lts/rubocop-lts-ruby/releases/tag/v0.1.0
