@@ -30,6 +30,8 @@ Please file a bug if you notice a violation of semantic versioning.
 - kettle-jem-template-20260727-001 - Spec harness documentation now lists the
   RSpec helpers provided by `kettle-test`.
 
+- The Lint/LtsRuby/UnavailableMethod catalog now covers additional Ruby 2.5 through 3.3 core and standard library APIs, with constant-receiver matching for singleton APIs.
+
 ### Changed
 
 - kettle-jem-template-20260716-002 - Gemspecs now ship fewer repository-only

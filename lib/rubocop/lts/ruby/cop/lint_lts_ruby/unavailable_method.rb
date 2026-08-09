@@ -23,7 +23,11 @@ module RuboCop
             entries = RuboCop::Lts::Ruby::Catalog.lookup(node.method_name)
             return unless entries
 
-            entries.each { |entry| report_unavailable(node, entry) }
+            entries.each do |entry|
+              next unless entry_applies?(node, entry)
+
+              report_unavailable(node, entry)
+            end
           end
 
           private
@@ -38,6 +42,12 @@ module RuboCop
 
           def method_key(entry)
             "#{entry.owner}##{entry.method_name}"
+          end
+
+          def entry_applies?(node, entry)
+            return true unless entry.receiver_type == :constant
+
+            node.receiver.const_type? && node.receiver.const_name == entry.owner
           end
 
           def report_unavailable(node, entry)
