@@ -81,6 +81,117 @@ RSpec.describe RuboCop::Cop::Lint::LtsRuby::UnavailableMethod, :config do
     end
   end
 
+  context "with the standard library APIs cataloged from Ruby NEWS" do
+    let(:ruby_version) { 1.9 }
+
+    it "reports newly cataloged instance APIs" do
+      {
+        "Date#jisx0301" => ["date.jisx0301", "jisx0301"],
+        "FileUtils#cp_lr" => ["file_utils.cp_lr(source, destination)", "cp_lr"],
+        "IO#cooked" => ["io.cooked", "cooked"],
+        "IO#cooked!" => ["io.cooked!", "cooked!"],
+        "IO#pathconf" => ["io.pathconf(name)", "pathconf"],
+        "IO#wait_readable" => ["io.wait_readable", "wait_readable"],
+        "IO#wait_writable" => ["io.wait_writable", "wait_writable"],
+        "Matrix#adjugate" => ["matrix.adjugate", "adjugate"],
+        "Matrix#antisymmetric?" => ["matrix.antisymmetric?", "antisymmetric?"],
+        "Matrix#cofactor" => ["matrix.cofactor(row, column)", "cofactor"],
+        "Matrix#first_minor" => ["matrix.first_minor(row, column)", "first_minor"],
+        "Matrix#hstack" => ["matrix.hstack(other_matrix)", "hstack"],
+        "Matrix#independent?" => ["matrix.independent?", "independent?"],
+        "Matrix#laplace_expansion" => ["matrix.laplace_expansion(row_or_column: 0)", "laplace_expansion"],
+        "Matrix/Vector#map!" => ["matrix.map! { |value| value }", "map!"],
+        "Matrix#skew_symmetric?" => ["matrix.skew_symmetric?", "skew_symmetric?"],
+        "Matrix#vstack" => ["matrix.vstack(other_matrix)", "vstack"],
+        "Net::FTP#features" => ["ftp.features", "features"],
+        "Net::FTP#option" => ["ftp.option(:name)", "option"],
+        "Net::HTTP#local_host" => ["http.local_host", "local_host"],
+        "Net::HTTP#local_port" => ["http.local_port", "local_port"],
+        "Net::SMTP#rset" => ["smtp.rset", "rset"],
+        "OpenStruct#each_pair" => ["object.each_pair { |key, value| [key, value] }", "each_pair"],
+        "OpenStruct#eql?" => ["object.eql?(other)", "eql?"],
+        "OpenStruct#hash" => ["object.hash", "hash"],
+        "File/File::Stat/Pathname#birthtime" => ["path.birthtime", "birthtime"],
+        "Pathname#binwrite" => ["path.binwrite(contents)", "binwrite"],
+        "Pathname#write" => ["path.write(contents)", "write"],
+        "Resolv::DNS#timeouts=" => ["dns.timeouts = values", "timeouts"],
+        "Ripper#state" => ["ripper.state", "state"],
+        "Method/Set#===" => ["set.=== value", "==="],
+        "Set#reset" => ["set.reset", "reset"],
+        "Set#to_s" => ["set.to_s", "to_s"],
+        "StringScanner#captures" => ["scanner.captures", "captures"],
+        "StringScanner#values_at" => ["scanner.values_at(0)", "values_at"],
+        "Vector#angle_with" => ["vector.angle_with(other_vector)", "angle_with"],
+        "Matrix/Vector#collect!" => ["vector.collect! { |value| value }", "collect!"],
+        "Vector#cross" => ["vector.cross(other_vector)", "cross"],
+        "Vector#cross_product" => ["vector.cross_product(other_vector)", "cross_product"],
+        "Vector#dot" => ["vector.dot(other_vector)", "dot"],
+        "Vector#round" => ["vector.round", "round"]
+      }.each do |api, (source, selector)|
+        entry = RuboCop::Lts::Ruby::Catalog::ENTRIES.find { |candidate| "#{candidate.owner}##{candidate.method_name}" == api } ||
+          RuboCop::Lts::Ruby::Catalog::ENTRIES.find { |candidate| candidate.method_name.to_s == selector }
+        introduced_in = entry.introduced_in
+        marker = " " * source.rindex(selector) + "^" * selector.length
+
+        expect_offense(<<~RUBY)
+          #{source}
+          #{marker} #{api} is unavailable before Ruby #{introduced_in}.
+        RUBY
+      end
+    end
+
+    it "reports newly cataloged constant APIs" do
+      {
+        "Coverage#peek_result" => ["Coverage.peek_result", "peek_result"],
+        "Coverage#line_stub" => ["Coverage.line_stub", "line_stub"],
+        "Coverage#supported?" => ["Coverage.supported?", "supported?"],
+        "ENV#except" => ["ENV.except(:HOME)", "except"],
+        "ERB::Escape#html_escape" => ["ERB::Escape.html_escape(value)", "html_escape"],
+        "Etc#confstr" => ["Etc.confstr(name)", "confstr"],
+        "Etc#nprocessors" => ["Etc.nprocessors", "nprocessors"],
+        "Etc#sysconf" => ["Etc.sysconf(name)", "sysconf"],
+        "Etc#uname" => ["Etc.uname", "uname"],
+        "FileUtils#cp_lr" => ["FileUtils.cp_lr(source, destination)", "cp_lr"],
+        "Matrix#hstack" => ["Matrix.hstack(matrix)", "hstack"],
+        "Matrix#independent?" => ["Matrix.independent?(matrix)", "independent?"],
+        "Matrix#vstack" => ["Matrix.vstack(matrix)", "vstack"],
+        "Net::IMAP#default_port" => ["Net::IMAP.default_port", "default_port"],
+        "Net::IMAP#default_imap_port" => ["Net::IMAP.default_imap_port", "default_imap_port"],
+        "Net::IMAP#default_tls_port" => ["Net::IMAP.default_tls_port", "default_tls_port"],
+        "Net::IMAP#default_ssl_port" => ["Net::IMAP.default_ssl_port", "default_ssl_port"],
+        "Net::IMAP#default_imaps_port" => ["Net::IMAP.default_imaps_port", "default_imaps_port"],
+        "ObjectSpace#reachable_objects_from" => ["ObjectSpace.reachable_objects_from(object)", "reachable_objects_from"],
+        "Readline#quoting_detection_proc" => ["Readline.quoting_detection_proc", "quoting_detection_proc"],
+        "Readline#quoting_detection_proc=" => ["Readline.quoting_detection_proc=(proc {})", "quoting_detection_proc"],
+        "SecureRandom#alphanumeric" => ["SecureRandom.alphanumeric(8)", "alphanumeric"],
+        "Vector#basis" => ["Vector.basis(3, 0)", "basis"],
+        "Zlib#gzip" => ["Zlib.gzip(value)", "gzip"],
+        "Zlib#gunzip" => ["Zlib.gunzip(value)", "gunzip"]
+      }.each do |api, (source, selector)|
+        entry = RuboCop::Lts::Ruby::Catalog::ENTRIES.find { |candidate| "#{candidate.owner}##{candidate.method_name}" == api } ||
+          RuboCop::Lts::Ruby::Catalog::ENTRIES.find { |candidate| candidate.method_name.to_s == selector }
+        introduced_in = entry.introduced_in
+        marker = " " * source.rindex(selector) + "^" * selector.length
+
+        expect_offense(<<~RUBY)
+          #{source}
+          #{marker} #{api} is unavailable before Ruby #{introduced_in}.
+        RUBY
+      end
+    end
+
+    context "when an older API shares a method name" do
+      let(:ruby_version) { 2.4 }
+
+      it "still reports the newer standard library API" do
+        expect_offense(<<~RUBY)
+          scanner.size
+                  ^^^^ StringScanner#size is unavailable before Ruby 2.5.
+        RUBY
+      end
+    end
+  end
+
   it "combines indistinguishable Method and UnboundMethod APIs" do
     expect_offense(<<~RUBY)
       callable.public?

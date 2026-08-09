@@ -34,6 +34,8 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - The Lint/LtsRuby/UnavailableMethod catalog now covers Ruby 3.1 core APIs, including Array#intersect?, Class#subclasses, Enumerable compaction, MatchData methods, GC timing, Integer.try_convert, and thread APIs.
 
+- Expand Lint/LtsRuby/UnavailableMethod with high-confidence Ruby 2.0 through 3.4 core and standard library APIs from the complete NEWS audit.
+
 ### Changed
 
 - kettle-jem-template-20260716-002 - Gemspecs now ship fewer repository-only
