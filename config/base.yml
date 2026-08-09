@@ -1,3 +1,5 @@
+# This plugin owns its API-gating rules only. The consuming RuboCop
+# configuration remains the sole owner of AllCops: TargetRubyVersion.
 require:
   - rubocop/lts/ruby/cop/lint_lts_ruby/unavailable_method
 
@@ -8,4 +10,3 @@ Lint/LtsRuby/UnavailableMethod:
   Enabled: true
   VersionAdded: '0.1'
   AllowedMethods: []
-

@@ -44,7 +44,11 @@ module RuboCop
           end
 
           def entry_applies?(node, entry)
-            return true unless entry.receiver_type == :constant
+            if entry.receiver_type == :instance
+              return false if node.receiver.const_type?
+
+              return true
+            end
 
             node.receiver.const_type? && node.receiver.const_name == entry.owner
           end

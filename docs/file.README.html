@@ -350,6 +350,12 @@ every receiver, a project can document a known-safe exception narrowly:</p>
 core or standard-library class and the first Ruby version that provides the<br>
 method, with a spec covering the compatibility boundary.</p>
 
+<p>This plugin does not set <code>AllCops: TargetRubyVersion</code>. That setting remains<br>
+owned by the consuming RuboCop configuration, such as <code>standard-rubocop-lts</code><br>
+or a version-specific RuboCop compatibility gem. LintRoller supplies this<br>
+gem’s rule configuration, and the cop reads the effective target selected by<br>
+RuboCop.</p>
+
 <h2 id="-basic-usage">🔧 Basic Usage</h2>
 
 <p>Run RuboCop normally after enabling the plugin:</p>

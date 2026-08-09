@@ -11,21 +11,11 @@ RSpec.describe RuboCop::Lts::Ruby::Plugin do
     expect(plugin).to be_supported(context)
   end
 
-  it "selects the profile matching the target Ruby minor version" do
+  it "supplies its rule configuration without changing the target Ruby version" do
     context = instance_double(LintRoller::Context, engine: :rubocop, target_ruby_version: Gem::Version.new("2.5"))
+    config = YAML.safe_load_file(plugin.rules(context).value)
 
-    expect(plugin.rules(context).value.to_s).to end_with("config/ruby-2.5.yml")
-  end
-
-  it "uses the 2.0 profile for adapter targets below RuboCop's floor" do
-    context = instance_double(LintRoller::Context, engine: :rubocop, target_ruby_version: Gem::Version.new("1.8"))
-
-    expect(plugin.rules(context).value.to_s).to end_with("config/ruby-2.0.yml")
-  end
-
-  it "uses the newest available profile for a newer target" do
-    context = instance_double(LintRoller::Context, engine: :rubocop, target_ruby_version: Gem::Version.new("9.0"))
-
-    expect(plugin.rules(context).value.to_s).to end_with("config/ruby-4.0.yml")
+    expect(plugin.rules(context).value.to_s).to end_with("config/base.yml")
+    expect(config.dig("AllCops", "TargetRubyVersion")).to be_nil
   end
 end

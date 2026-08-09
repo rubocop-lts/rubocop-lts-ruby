@@ -1,6 +1,0 @@
-inherit_from:
-  - base.yml
-
-AllCops:
-  TargetRubyVersion: 2.0
-

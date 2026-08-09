@@ -2,10 +2,7 @@
   "gemfiles/modular/templating.gemfile:155879869": [
     [15, 3, 47, "Bundler/DuplicatedGem: Gem `tree_sitter_language_pack` requirements already given on line 11 of the Gemfile.", 3843603197]
   ],
-  "lib/rubocop/lts/ruby/plugin.rb:1599483656": [
-    [43, 28, 43, "Performance/Detect: Use `reverse.find` instead of `select.last`.", 2297109375]
-  ],
-  "spec/rubocop/lts/ruby/cop/lint_lts_ruby/unavailable_method_spec.rb:4004282198": [
+  "spec/rubocop/lts/ruby/cop/lint_lts_ruby/unavailable_method_spec.rb:316926669": [
     [5, 1, 70, "RSpec/SpecFilePathFormat: Spec path should end with `rubocop/cop/lint/lts_ruby/unavailable_method*_spec.rb`.", 3206887762]
   ]
 }

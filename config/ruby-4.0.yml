@@ -1,6 +1,0 @@
-inherit_from:
-  - ruby-3.4.yml
-
-AllCops:
-  TargetRubyVersion: 4.0
-

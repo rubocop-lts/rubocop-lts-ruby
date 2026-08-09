@@ -133,6 +133,12 @@ The catalog is deliberately explicit. New entries should include the owning
 core or standard-library class and the first Ruby version that provides the
 method, with a spec covering the compatibility boundary.
 
+This plugin does not set `AllCops: TargetRubyVersion`. That setting remains
+owned by the consuming RuboCop configuration, such as `standard-rubocop-lts`
+or a version-specific RuboCop compatibility gem. LintRoller supplies this
+gem's rule configuration, and the cop reads the effective target selected by
+RuboCop.
+
 ## 🔧 Basic Usage
 
 Run RuboCop normally after enabling the plugin:

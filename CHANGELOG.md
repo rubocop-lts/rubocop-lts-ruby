@@ -50,6 +50,8 @@ Please file a bug if you notice a violation of semantic versioning.
   setup-ruby-flash planning and can prepare appraisal-only jobs without
   installing the main Gemfile bundle.
 
+- The LintRoller plugin now supplies only its API-gating rules; TargetRubyVersion remains owned by the consuming RuboCop configuration, and the catalog is audited against the full Ruby 2.0 through 3.4 NEWS.
+
 ### Deprecated
 
 ### Removed
