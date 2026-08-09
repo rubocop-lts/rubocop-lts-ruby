@@ -213,8 +213,7 @@ This cop fills that gap for explicit receiver calls in the catalog.</p>
 27
 28
 29
-30
-31</pre>
+30</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/rubocop/lts/ruby/cop/lint_lts_ruby/unavailable_method.rb', line 20</span>
@@ -225,10 +224,9 @@ This cop fills that gap for explicit receiver calls in the catalog.</p>
   <span class='id identifier rubyid_entries'>entries</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../../../RuboCop.html" title="RuboCop (module)">RuboCop</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../../Lts.html" title="RuboCop::Lts (module)">Lts</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../../Lts/Ruby.html" title="RuboCop::Lts::Ruby (module)">Ruby</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../../Lts/Ruby/Catalog.html" title="RuboCop::Lts::Ruby::Catalog (module)">Catalog</a></span></span><span class='period'>.</span><span class='id identifier rubyid_lookup'><span class='object_link'><a href="../../../Lts/Ruby/Catalog.html#lookup-class_method" title="RuboCop::Lts::Ruby::Catalog.lookup (method)">lookup</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='period'>.</span><span class='id identifier rubyid_method_name'>method_name</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_entries'>entries</span>
 
-  <span class='id identifier rubyid_entries'>entries</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_entry'>entry</span><span class='op'>|</span>
-    <span class='kw'>next</span> <span class='kw'>unless</span> <span class='id identifier rubyid_entry_applies?'>entry_applies?</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='comma'>,</span> <span class='id identifier rubyid_entry'>entry</span><span class='rparen'>)</span>
-
-    <span class='id identifier rubyid_report_unavailable'>report_unavailable</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='comma'>,</span> <span class='id identifier rubyid_entry'>entry</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_applicable_entries'>applicable_entries</span> <span class='op'>=</span> <span class='id identifier rubyid_entries'>entries</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_entry'>entry</span><span class='op'>|</span> <span class='id identifier rubyid_entry_applies?'>entry_applies?</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='comma'>,</span> <span class='id identifier rubyid_entry'>entry</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_applicable_entries'>applicable_entries</span><span class='period'>.</span><span class='id identifier rubyid_group_by'>group_by</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:introduced_in</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each_value'>each_value</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_same_version_entries'>same_version_entries</span><span class='op'>|</span>
+    <span class='id identifier rubyid_report_unavailable'>report_unavailable</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='comma'>,</span> <span class='id identifier rubyid_same_version_entries'>same_version_entries</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
     </td>

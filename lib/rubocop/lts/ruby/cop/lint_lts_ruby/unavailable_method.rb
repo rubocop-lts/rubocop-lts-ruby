@@ -23,10 +23,9 @@ module RuboCop
             entries = RuboCop::Lts::Ruby::Catalog.lookup(node.method_name)
             return unless entries
 
-            entries.each do |entry|
-              next unless entry_applies?(node, entry)
-
-              report_unavailable(node, entry)
+            applicable_entries = entries.select { |entry| entry_applies?(node, entry) }
+            applicable_entries.group_by(&:introduced_in).each_value do |same_version_entries|
+              report_unavailable(node, same_version_entries)
             end
           end
 
@@ -40,8 +39,8 @@ module RuboCop
             Array(cop_config.fetch("AllowedMethods", [])).map(&:to_s)
           end
 
-          def method_key(entry)
-            "#{entry.owner}##{entry.method_name}"
+          def method_keys(entries)
+            entries.map { |entry| "#{entry.owner}##{entry.method_name}" }
           end
 
           def entry_applies?(node, entry)
@@ -50,15 +49,16 @@ module RuboCop
             node.receiver.const_type? && node.receiver.const_name == entry.owner
           end
 
-          def report_unavailable(node, entry)
-            return unless target_ruby_version < entry.introduced_in
-            return if allowed_methods.include?(method_key(entry))
+          def report_unavailable(node, entries)
+            return unless target_ruby_version < entries.first.introduced_in
+            return if method_keys(entries).any? { |key| allowed_methods.include?(key) }
 
-            add_offense(node.selector, message: offense_message(entry))
+            add_offense(node.selector, message: offense_message(entries))
           end
 
-          def offense_message(entry)
-            format(MSG, owner: entry.owner, method: entry.method_name, version: entry.introduced_in)
+          def offense_message(entries)
+            owners = entries.map(&:owner).uniq.join("/")
+            format(MSG, owner: owners, method: entries.first.method_name, version: entries.first.introduced_in)
           end
         end
       end

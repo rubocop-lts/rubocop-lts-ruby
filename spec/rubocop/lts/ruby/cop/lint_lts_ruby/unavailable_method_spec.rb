@@ -16,24 +16,31 @@ RSpec.describe RuboCop::Cop::Lint::LtsRuby::UnavailableMethod, :config do
   it "reports the instance APIs in the catalog" do
     {
       "Array#prepend" => ["values.prepend(value)", "prepend"],
+      "Array#intersect?" => ["values.intersect?(other_values)", "intersect?"],
+      "Class#subclasses" => ["klass.subclasses", "subclasses"],
       "Dir#children" => ["Dir.children(path)", "children"],
       "Dir#each_child" => ["Dir.each_child(path) { |entry| entry }", "each_child"],
       "Exception#full_message" => ["error.full_message", "full_message"],
       "Enumerable#chain" => ["values.chain(other_values)", "chain"],
+      "Enumerable/Enumerator::Lazy#compact" => ["values.compact", "compact"],
       "Enumerator#+" => ["enumerator + other_enumerator", "+"],
       "Enumerator::Lazy#eager" => ["values.lazy.eager", "eager"],
       "Hash#except" => ["values.except(:key)", "except"],
       "MatchData#byteoffset" => ["match.byteoffset(0)", "byteoffset"],
+      "MatchData#match" => ["match.match(pattern)", "match"],
+      "MatchData#match_length" => ["match.match_length(0)", "match_length"],
       "Object#then" => ["value.then { |item| item }", "then"],
       "Proc#<<" => ["callable << other_callable", "<<"],
       "Proc#>>" => ["callable >> other_callable", ">>"],
       "Range#overlap?" => ["range.overlap?(other_range)", "overlap?"],
       "String#byteindex" => ["value.byteindex(pattern)", "byteindex"],
       "String#byterindex" => ["value.byterindex(pattern)", "byterindex"],
-      "String#bytesplice" => ["value.bytesplice(0, 1, replacement)", "bytesplice"]
+      "String#bytesplice" => ["value.bytesplice(0, 1, replacement)", "bytesplice"],
+      "Thread#native_thread_id" => ["thread.native_thread_id", "native_thread_id"]
     }.each do |api, (source, selector)|
-      introduced_in = RuboCop::Lts::Ruby::Catalog::ENTRIES.find { |entry| "#{entry.owner}##{entry.method_name}" == api }.introduced_in
-      marker = " " * source.index(selector) + "^" * selector.length
+      introduced_in = RuboCop::Lts::Ruby::Catalog::ENTRIES.find { |entry| "#{entry.owner}##{entry.method_name}" == api }&.introduced_in ||
+        RuboCop::Lts::Ruby::Catalog::ENTRIES.find { |entry| entry.method_name.to_s == selector }.introduced_in
+      marker = " " * source.rindex(selector) + "^" * selector.length
 
       expect_offense(<<~RUBY)
         #{source}
@@ -45,18 +52,30 @@ RSpec.describe RuboCop::Cop::Lint::LtsRuby::UnavailableMethod, :config do
   it "reports the constant APIs in the catalog" do
     {
       "Data#define" => ["Data.define(:amount)", "define"],
+      "GC#measure_total_time" => ["GC.measure_total_time", "measure_total_time"],
+      "GC#measure_total_time=" => ["GC.measure_total_time = true", "measure_total_time"],
+      "GC#total_time" => ["GC.total_time", "total_time"],
+      "Integer#try_convert" => ["Integer.try_convert(value)", "try_convert"],
       "Process#warmup" => ["Process.warmup", "warmup"],
       "Regexp#timeout" => ["Regexp.timeout", "timeout"],
-      "Regexp#timeout=" => ["Regexp.timeout = 1.0", "timeout"]
+      "Regexp#timeout=" => ["Regexp.timeout = 1.0", "timeout"],
+      "Thread::Backtrace#limit" => ["Thread::Backtrace.limit", "limit"]
     }.each do |api, (source, selector)|
       introduced_in = RuboCop::Lts::Ruby::Catalog::ENTRIES.find { |entry| "#{entry.owner}##{entry.method_name}" == api }.introduced_in
-      marker = " " * source.index(selector) + "^" * selector.length
+      marker = " " * source.rindex(selector) + "^" * selector.length
 
       expect_offense(<<~RUBY)
         #{source}
         #{marker} #{api} is unavailable before Ruby #{introduced_in}.
       RUBY
     end
+  end
+
+  it "combines indistinguishable Method and UnboundMethod APIs" do
+    expect_offense(<<~RUBY)
+      callable.public?
+               ^^^^^^^ Method/UnboundMethod#public? is unavailable before Ruby 3.1.
+    RUBY
   end
 
   context "when the target supports the API" do
