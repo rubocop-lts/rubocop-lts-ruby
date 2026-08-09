@@ -97,4 +97,6 @@ Please file a bug if you notice a violation of semantic versioning.
   setup-ruby Bundler install path for direct appraisal Gemfiles, avoiding rv
   lockfile parser failures on Git and path dependencies.
 
+- Generated dep-heads workflows now include their checked-in appraisal Gemfile, and Ruby 3.1 stdlib appraisal references resolve to an existing modular Gemfile.
+
 ### Security
