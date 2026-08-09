@@ -1,0 +1,10 @@
+module RuboCop
+  module Lts
+    module Ruby
+      module Version
+        VERSION: String
+      end
+      VERSION: String
+    end
+  end
+end

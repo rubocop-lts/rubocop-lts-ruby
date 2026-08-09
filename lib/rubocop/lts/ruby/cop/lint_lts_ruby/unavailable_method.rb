@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require 'rubocop'
-require 'rubocop/lts/ruby/catalog'
+require "rubocop"
+require "rubocop/lts/ruby/catalog"
 
 module RuboCop
   module Cop
@@ -13,7 +13,7 @@ module RuboCop
         # but it does not provide a complete runtime API compatibility database.
         # This cop fills that gap for explicit receiver calls in the catalog.
         class UnavailableMethod < Base
-          MSG = '%<owner>s#%<method>s is unavailable before Ruby %<version>s.'
+          MSG = "%<owner>s#%<method>s is unavailable before Ruby %<version>s."
 
           RESTRICT_ON_SEND = RuboCop::Lts::Ruby::Catalog::BY_METHOD.keys.freeze
 
@@ -33,7 +33,7 @@ module RuboCop
           end
 
           def allowed_methods
-            Array(cop_config.fetch('AllowedMethods', [])).map(&:to_s)
+            Array(cop_config.fetch("AllowedMethods", [])).map(&:to_s)
           end
 
           def method_key(entry)

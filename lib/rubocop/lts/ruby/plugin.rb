@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'lint_roller'
-require 'pathname'
-require 'rubygems/version'
-require_relative 'version'
+require "lint_roller"
+require "pathname"
+require "rubygems/version"
+require_relative "version"
 
 module RuboCop
   module Lts
@@ -17,10 +17,10 @@ module RuboCop
 
         def about
           LintRoller::About.new(
-            name: 'rubocop-lts-ruby',
+            name: "rubocop-lts-ruby",
             version: VERSION,
-            homepage: 'https://github.com/rubocop-lts/rubocop-lts-ruby',
-            description: 'RuboCop cops that gate Ruby core and standard library APIs by target Ruby version.'
+            homepage: "https://github.com/rubocop-lts/rubocop-lts-ruby",
+            description: "RuboCop cops that gate Ruby core and standard library APIs by target Ruby version."
           )
         end
 
