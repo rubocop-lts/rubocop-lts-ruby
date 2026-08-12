@@ -28,6 +28,8 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+- Document the plugin purpose in the README Synopsis section.
+
 ### Security
 
 ## [0.1.0] - 2026-08-09
