@@ -230,6 +230,21 @@ RSpec.describe RuboCop::Cop::Lint::LtsRuby::UnavailableMethod, :config do
     expect_no_offenses("filter_map { |value| value }")
   end
 
+  context "with a constructor-only instance API" do
+    let(:ruby_version) { 3.2 }
+
+    it "reports a directly constructed WeakMap" do
+      expect_offense(<<~RUBY)
+        ObjectSpace::WeakMap.new.delete(key)
+                                 ^^^^^^ ObjectSpace::WeakMap#delete is unavailable before Ruby 3.3.
+      RUBY
+    end
+
+    it "does not infer a WeakMap from an arbitrary local receiver" do
+      expect_no_offenses("values.delete(key)")
+    end
+  end
+
   it "keeps each catalog entry uniquely identified" do
     entries = RuboCop::Lts::Ruby::Catalog::ENTRIES
     keys = entries.map { |entry| [entry.owner, entry.method_name, entry.receiver_type] }

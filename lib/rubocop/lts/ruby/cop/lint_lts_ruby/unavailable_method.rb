@@ -44,13 +44,24 @@ module RuboCop
           end
 
           def entry_applies?(node, entry)
-            if entry.receiver_type == :instance
-              return false if node.receiver.const_type?
-
-              return true
+            case entry.receiver_type
+            when :instance
+              !node.receiver.const_type?
+            when :constant
+              node.receiver.const_type? && node.receiver.const_name == entry.owner
+            when :constructed_instance
+              constructed_instance_of?(node.receiver, entry.owner)
+            else
+              false
             end
+          end
 
-            node.receiver.const_type? && node.receiver.const_name == entry.owner
+          # A local receiver has no reliable static class in RuboCop's AST. Restrict
+          # constructor-only APIs to a directly visible `Owner.new` expression rather
+          # than treating every nonconstant receiver as an instance of that owner.
+          def constructed_instance_of?(receiver, owner)
+            receiver.send_type? && receiver.method?(:new) &&
+              receiver.receiver&.const_type? && receiver.receiver.const_name == owner
           end
 
           def report_unavailable(node, entries)

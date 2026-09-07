@@ -28,6 +28,8 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+- Avoid false positives for ObjectSpace::WeakMap delete availability checks.
+
 ### Security
 
 ## [0.1.1] - 2026-09-07

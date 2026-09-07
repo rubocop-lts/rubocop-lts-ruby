@@ -237,7 +237,7 @@ module RuboCop
           entry("Object", :then, "2.6"),
           entry("Object", :yield_self, "2.5"),
           entry("ObjectSpace", :reachable_objects_from, "2.0", receiver_type: :constant),
-          entry("ObjectSpace::WeakMap", :delete, "3.3"),
+          entry("ObjectSpace::WeakMap", :delete, "3.3", receiver_type: :constructed_instance),
           entry("OpenStruct", :[], "2.0"),
           entry("OpenStruct", :[]=, "2.0"),
           entry("OpenStruct", :each_pair, "2.0"),
