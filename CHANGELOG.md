@@ -22,6 +22,23 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [0.1.1] - 2026-09-07
+
+- TAG: [v0.1.1][0.1.1t]
+- COVERAGE: 98.68% -- 75/76 lines in 6 files
+- BRANCH COVERAGE: 91.67% -- 11/12 branches in 6 files
+- 44.44% documented
+
+### Changed
+
 - [kc] kettle-jem/prepare: updated 41 project files:
   - configuration (1)
   - dependencies (38)
@@ -34,15 +51,9 @@ Please file a bug if you notice a violation of semantic versioning.
   - other (9)
   - workflows (1)
 
-### Deprecated
-
-### Removed
-
 ### Fixed
 
 - Document the plugin purpose in the README Synopsis section.
-
-### Security
 
 ## [0.1.0] - 2026-08-09
 
@@ -128,6 +139,8 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Generated dep-heads workflows now include their checked-in appraisal Gemfile, and Ruby 3.1 stdlib appraisal references resolve to an existing modular Gemfile.
 
-[Unreleased]: https://github.com/rubocop-lts/rubocop-lts-ruby/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/rubocop-lts/rubocop-lts-ruby/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/rubocop-lts/rubocop-lts-ruby/compare/v0.1.0...v0.1.1
+[0.1.1t]: https://github.com/rubocop-lts/rubocop-lts-ruby/releases/tag/v0.1.1
 [0.1.0]: https://github.com/rubocop-lts/rubocop-lts-ruby/compare/968b2f62d3056d967753b1ee4fcdc3c958553b87...v0.1.0
 [0.1.0t]: https://github.com/rubocop-lts/rubocop-lts-ruby/releases/tag/v0.1.0

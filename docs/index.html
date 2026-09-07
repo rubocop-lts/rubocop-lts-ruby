@@ -83,6 +83,8 @@
 <h2 id="-synopsis--">🌻 Synopsis <a href="https://discord.gg/3qme4XHNKN"><img alt="Galtzo FLOSS Logo by Aboling0, CC BY-SA 4.0" src="https://logos.galtzo.com/assets/images/galtzo-floss/avatar-128px.svg" width="8%" align="right"></a> <a href="https://ruby-toolbox.com"><img alt="ruby-lang Logo, Yukihiro Matsumoto, Ruby Visual Identity Team, CC BY-SA 2.5" src="https://logos.galtzo.com/assets/images/ruby-lang/avatar-128px.svg" width="8%" align="right"></a>
 </h2>
 
+<p><code>rubocop-lts-ruby</code> provides a RuboCop plugin with compatibility cops for Ruby core and standard-library APIs. It reports calls to catalogued methods that are unavailable in the configured target Ruby version, helping projects catch accidental use of newer APIs before they reach supported runtimes.</p>
+
 <h2 id="-info-you-can-shake-a-stick-at">💡 Info you can shake a stick at</h2>
 
 <table>
@@ -167,7 +169,7 @@
 
 <h3 id="compatibility">Compatibility</h3>
 
-<p>Compatible with MRI Ruby, JRuby, and TruffleRuby.<br>
+<p>Compatible with MRI Ruby 3.2.0+, JRuby, and TruffleRuby.<br>
 CI workflows and Appraisals are generated for MRI Ruby 3.2.0+.<br>
 This test floor is configured by <code>ruby.test_minimum</code> in <code>.kettle-jem.yml</code> and<br>
 may be higher than the gem’s runtime compatibility floor when legacy Rubies are<br>
@@ -292,8 +294,9 @@ not practical for the current toolchain.</p>
 
 </details>
 
-<h3 id="enterprise-support-">Enterprise Support <a href="https://tidelift.com/subscription/pkg/rubygems-rubocop-lts-ruby?utm_source=rubygems-rubocop-lts-ruby&amp;utm_medium=referral&amp;utm_campaign=readme"><img src="https://tidelift.com/badges/package/rubygems/rubocop-lts-ruby" alt="Tidelift"></a>
-</h3>
+<h3 id="enterprise-support">Enterprise Support</h3>
+
+<p><a href="https://tidelift.com/subscription/pkg/rubygems-rubocop-lts-ruby?utm_source=rubygems-rubocop-lts-ruby&amp;utm_medium=referral&amp;utm_campaign=readme"><img src="https://tidelift.com/badges/package/rubygems/rubocop-lts-ruby" alt="Tidelift"></a></p>
 
 <p>Available as part of the Tidelift Subscription.</p>
 
@@ -451,8 +454,7 @@ and <a href="https://tidelift.com/subscription/pkg/rubygems-rubocop-lts-ruby?utm
 <h2 id="-contributing">🤝 Contributing</h2>
 
 <p>If you need some ideas of where to help, you could work on adding more code coverage,<br>
-or if it is already 💯 (see <a href="#code-coverage">below</a>) check <a href="https://github.com/rubocop-lts/rubocop-lts-ruby/issues">issues</a> or <a href="https://github.com/rubocop-lts/rubocop-lts-ruby/pulls">PRs</a>,<br>
-or use the gem and think about how it could be better.</p>
+check <a href="https://github.com/rubocop-lts/rubocop-lts-ruby/issues">issues</a> or <a href="https://github.com/rubocop-lts/rubocop-lts-ruby/pulls">PRs</a>, or use the gem and think about how it could be better.</p>
 
 <p>We <a href="https://keepachangelog.com/en/1.0.0/"><img src="https://img.shields.io/badge/keep--a--changelog-1.0.0-34495e.svg?style=flat" alt="Keep A Changelog"></a> so if you make changes, remember to update it.</p>
 
@@ -487,19 +489,6 @@ chat rooms and mailing lists agrees to follow the <a href="https://github.com/ru
 <p>Made with <a href="https://contrib.rocks">contributors-img</a>.</p>
 
 <p>Also see GitLab Contributors: <a href="https://gitlab.com/rubocop-lts/rubocop-lts-ruby/-/graphs/main">https://gitlab.com/rubocop-lts/rubocop-lts-ruby/-/graphs/main</a></p>
-
-<details>
-  <summary>⭐️ Star History</summary>
-
-  <p><a href="https://star-history.com/rubocop-lts/rubocop-lts-ruby&amp;Date"></a></p>
-  <picture>
- <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=rubocop-lts/rubocop-lts-ruby&amp;type=Date&amp;theme=dark"></source>
- <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=rubocop-lts/rubocop-lts-ruby&amp;type=Date"></source>
- <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=rubocop-lts/rubocop-lts-ruby&amp;type=Date">
- </picture>
-  <p>&lt;/a&gt;</p>
-
-</details>
 
 <h2 id="-versioning">📌 Versioning</h2>
 
