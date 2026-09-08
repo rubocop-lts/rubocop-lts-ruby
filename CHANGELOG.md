@@ -28,9 +28,18 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
-- Avoid false positives for ObjectSpace::WeakMap delete availability checks.
-
 ### Security
+
+## [0.1.2] - 2026-09-07
+
+- TAG: [v0.1.2][0.1.2t]
+- COVERAGE: 97.47% -- 77/79 lines in 6 files
+- BRANCH COVERAGE: 78.57% -- 11/14 branches in 6 files
+- 44.44% documented
+
+### Fixed
+
+- Avoid false positives for ObjectSpace::WeakMap delete availability checks.
 
 ## [0.1.1] - 2026-09-07
 
@@ -141,7 +150,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Generated dep-heads workflows now include their checked-in appraisal Gemfile, and Ruby 3.1 stdlib appraisal references resolve to an existing modular Gemfile.
 
-[Unreleased]: https://github.com/rubocop-lts/rubocop-lts-ruby/compare/v0.1.1...HEAD
+[Unreleased]: https://github.com/rubocop-lts/rubocop-lts-ruby/compare/v0.1.2...HEAD
+[0.1.2]: https://github.com/rubocop-lts/rubocop-lts-ruby/compare/v0.1.1...v0.1.2
+[0.1.2t]: https://github.com/rubocop-lts/rubocop-lts-ruby/releases/tag/v0.1.2
 [0.1.1]: https://github.com/rubocop-lts/rubocop-lts-ruby/compare/v0.1.0...v0.1.1
 [0.1.1t]: https://github.com/rubocop-lts/rubocop-lts-ruby/releases/tag/v0.1.1
 [0.1.0]: https://github.com/rubocop-lts/rubocop-lts-ruby/compare/968b2f62d3056d967753b1ee4fcdc3c958553b87...v0.1.0
