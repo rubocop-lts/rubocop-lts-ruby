@@ -3,8 +3,17 @@
     {
       "file": "CHANGELOG.md",
       "lines": [
-        25,
-        45
+        58,
+        74
+      ]
+    }
+  ],
+  "exec_cmd: \"kettle-test\"\nrubygems: latest": [
+    {
+      "file": ".github/workflows/current.yml",
+      "lines": [
+        43,
+        49
       ]
     }
   ]
