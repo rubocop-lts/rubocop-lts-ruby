@@ -44,6 +44,8 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+- Lint/LtsRuby/UnavailableMethod now reports instance APIs only when the receiver is an explicit matching constructor, avoiding guesses about untyped local receivers.
+
 ### Security
 
 ## [0.1.4] - 2026-09-08

@@ -11,7 +11,8 @@ module RuboCop
         #
         # RuboCop's TargetRubyVersion handles syntax and version-aware style rules,
         # but it does not provide a complete runtime API compatibility database.
-        # This cop fills that gap for explicit receiver calls in the catalog.
+        # This cop fills that gap for receiver calls whose owner is explicit in
+        # the syntax. Untyped local receivers are intentionally ignored.
         class UnavailableMethod < Base
           MSG = "%<owner>s#%<method>s is unavailable before Ruby %<version>s."
 
@@ -46,7 +47,7 @@ module RuboCop
           def entry_applies?(node, entry)
             case entry.receiver_type
             when :instance
-              !node.receiver.const_type?
+              constructed_instance_of?(node.receiver, entry.owner)
             when :constant
               node.receiver.const_type? && node.receiver.const_name == entry.owner
             when :constructed_instance
