@@ -110,7 +110,8 @@
 
 <p>RuboCop’s TargetRubyVersion handles syntax and version-aware style rules,<br />
 but it does not provide a complete runtime API compatibility database.<br />
-This cop fills that gap for explicit receiver calls in the catalog.</p>
+This cop fills that gap for receiver calls whose owner is explicit in<br />
+the syntax. Untyped local receivers are intentionally ignored.</p>
 
 
   </div>
@@ -203,7 +204,6 @@ This cop fills that gap for explicit receiver calls in the catalog.</p>
       <pre class="lines">
 
 
-20
 21
 22
 23
@@ -213,10 +213,11 @@ This cop fills that gap for explicit receiver calls in the catalog.</p>
 27
 28
 29
-30</pre>
+30
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rubocop/lts/ruby/cop/lint_lts_ruby/unavailable_method.rb', line 20</span>
+      <pre class="code"><span class="info file"># File 'lib/rubocop/lts/ruby/cop/lint_lts_ruby/unavailable_method.rb', line 21</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_on_send'>on_send</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_node'>node</span><span class='period'>.</span><span class='id identifier rubyid_receiver'>receiver</span>

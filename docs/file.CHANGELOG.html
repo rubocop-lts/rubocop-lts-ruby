@@ -70,7 +70,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 and <a href="https://tom.preston-werner.com/2022/05/23/major-version-numbers-are-not-sacred.html">yes</a>, platform and engine support are part of the <a href="https://github.com/semver/semver/issues/716#issuecomment-869336139">public API</a>.<br>
 Please file a bug if you notice a violation of semantic versioning.</p>
 
-<h2 id="unreleased"><a href="https://github.com/rubocop-lts/rubocop-lts-ruby/compare/v0.1.4...HEAD">Unreleased</a></h2>
+<h2 id="unreleased"><a href="https://github.com/rubocop-lts/rubocop-lts-ruby/compare/v0.1.5...HEAD">Unreleased</a></h2>
 
 <h3 id="added">Added</h3>
 
@@ -84,6 +84,52 @@ Please file a bug if you notice a violation of semantic versioning.</p>
 
 <h3 id="security">Security</h3>
 
+<h2 id="015---2026-10-01">
+<a href="https://github.com/rubocop-lts/rubocop-lts-ruby/compare/v0.1.4...v0.1.5">0.1.5</a> - 2026-10-01</h2>
+
+<ul>
+  <li>TAG: <a href="https://github.com/rubocop-lts/rubocop-lts-ruby/releases/tag/v0.1.5">v0.1.5</a>
+</li>
+  <li>COVERAGE: 97.47% – 77/79 lines in 6 files</li>
+  <li>BRANCH COVERAGE: 78.57% – 11/14 branches in 6 files</li>
+  <li>44.44% documented</li>
+</ul>
+
+<h3 id="added-1">Added</h3>
+
+<ul>
+  <li>kettle-jem-template-20260913-001 - Templating now also surfaces a review<br>
+entry in <code>dependency_conflicts.resolve</code> when a direct development<br>
+dependency doesn’t support one or more of this project’s declared<br>
+<code>engines:</code> and has no template-managed modular home (e.g. <code>sqlite3</code> on<br>
+<code>jruby</code>). Review each entry and pick a resolution per the project’s own<br>
+engine support needs.</li>
+</ul>
+
+<h3 id="changed-1">Changed</h3>
+
+<ul>
+  <li>[kc] kettle-jem/prepare: updated 14 project files:
+    <ul>
+      <li>dependencies (14)</li>
+    </ul>
+  </li>
+  <li>[kc] kettle-jem/template: updated 23 project files:
+    <ul>
+      <li>code and tests (1)</li>
+      <li>dependencies (2)</li>
+      <li>other (2)</li>
+      <li>workflows (18)</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="fixed-1">Fixed</h3>
+
+<ul>
+  <li>Lint/LtsRuby/UnavailableMethod now reports instance APIs only when the receiver is an explicit matching constructor, avoiding guesses about untyped local receivers.</li>
+</ul>
+
 <h2 id="014---2026-09-08">
 <a href="https://github.com/rubocop-lts/rubocop-lts-ruby/compare/v0.1.3...v0.1.4">0.1.4</a> - 2026-09-08</h2>
 
@@ -95,7 +141,7 @@ Please file a bug if you notice a violation of semantic versioning.</p>
   <li>44.44% documented</li>
 </ul>
 
-<h3 id="changed-1">Changed</h3>
+<h3 id="changed-2">Changed</h3>
 
 <ul>
   <li>[kc] kettle-jem/prepare: updated 6 project files:
@@ -122,7 +168,7 @@ Please file a bug if you notice a violation of semantic versioning.</p>
   <li>44.44% documented</li>
 </ul>
 
-<h3 id="changed-2">Changed</h3>
+<h3 id="changed-3">Changed</h3>
 
 <ul>
   <li>[kc] kettle-jem/prepare: updated 6 project files:
@@ -149,7 +195,7 @@ Please file a bug if you notice a violation of semantic versioning.</p>
   <li>44.44% documented</li>
 </ul>
 
-<h3 id="fixed-1">Fixed</h3>
+<h3 id="fixed-2">Fixed</h3>
 
 <ul>
   <li>Avoid false positives for ObjectSpace::WeakMap delete availability checks.</li>
@@ -166,7 +212,7 @@ Please file a bug if you notice a violation of semantic versioning.</p>
   <li>44.44% documented</li>
 </ul>
 
-<h3 id="changed-3">Changed</h3>
+<h3 id="changed-4">Changed</h3>
 
 <ul>
   <li>[kc] kettle-jem/prepare: updated 41 project files:
@@ -187,7 +233,7 @@ Please file a bug if you notice a violation of semantic versioning.</p>
   </li>
 </ul>
 
-<h3 id="fixed-2">Fixed</h3>
+<h3 id="fixed-3">Fixed</h3>
 
 <ul>
   <li>Document the plugin purpose in the README Synopsis section.</li>
@@ -204,7 +250,7 @@ Please file a bug if you notice a violation of semantic versioning.</p>
   <li>44.44% documented</li>
 </ul>
 
-<h3 id="added-1">Added</h3>
+<h3 id="added-2">Added</h3>
 
 <ul>
   <li>
@@ -228,7 +274,7 @@ RSpec helpers provided by <code>kettle-test</code>.</p>
   <li>Expand Lint/LtsRuby/UnavailableMethod with high-confidence Ruby 2.0 through 3.4 core and standard library APIs from the complete NEWS audit.</li>
 </ul>
 
-<h3 id="changed-4">Changed</h3>
+<h3 id="changed-5">Changed</h3>
 
 <ul>
   <li>kettle-jem-template-20260716-002 - Gemspecs now ship fewer repository-only<br>
@@ -250,7 +296,7 @@ installing the main Gemfile bundle.</p>
   <li>The LintRoller plugin now supplies only its API-gating rules; TargetRubyVersion remains owned by the consuming RuboCop configuration, and the catalog is audited against the full Ruby 2.0 through 3.4 NEWS.</li>
 </ul>
 
-<h3 id="fixed-3">Fixed</h3>
+<h3 id="fixed-4">Fixed</h3>
 
 <ul>
   <li>kettle-jem-template-20260720-003 - StructuredMerge Git diff driver config now<br>

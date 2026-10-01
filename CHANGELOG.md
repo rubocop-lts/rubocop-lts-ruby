@@ -20,6 +20,25 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [0.1.5] - 2026-10-01
+
+- TAG: [v0.1.5][0.1.5t]
+- COVERAGE: 97.47% -- 77/79 lines in 6 files
+- BRANCH COVERAGE: 78.57% -- 11/14 branches in 6 files
+- 44.44% documented
+
+### Added
+
 - kettle-jem-template-20260913-001 - Templating now also surfaces a review
   entry in `dependency_conflicts.resolve` when a direct development
   dependency doesn't support one or more of this project's declared
@@ -38,15 +57,9 @@ Please file a bug if you notice a violation of semantic versioning.
   - other (2)
   - workflows (18)
 
-### Deprecated
-
-### Removed
-
 ### Fixed
 
 - Lint/LtsRuby/UnavailableMethod now reports instance APIs only when the receiver is an explicit matching constructor, avoiding guesses about untyped local receivers.
-
-### Security
 
 ## [0.1.4] - 2026-09-08
 
@@ -200,7 +213,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Generated dep-heads workflows now include their checked-in appraisal Gemfile, and Ruby 3.1 stdlib appraisal references resolve to an existing modular Gemfile.
 
-[Unreleased]: https://github.com/rubocop-lts/rubocop-lts-ruby/compare/v0.1.4...HEAD
+[Unreleased]: https://github.com/rubocop-lts/rubocop-lts-ruby/compare/v0.1.5...HEAD
+[0.1.5]: https://github.com/rubocop-lts/rubocop-lts-ruby/compare/v0.1.4...v0.1.5
+[0.1.5t]: https://github.com/rubocop-lts/rubocop-lts-ruby/releases/tag/v0.1.5
 [0.1.4]: https://github.com/rubocop-lts/rubocop-lts-ruby/compare/v0.1.3...v0.1.4
 [0.1.4t]: https://github.com/rubocop-lts/rubocop-lts-ruby/releases/tag/v0.1.4
 [0.1.3]: https://github.com/rubocop-lts/rubocop-lts-ruby/compare/v0.1.2...v0.1.3
