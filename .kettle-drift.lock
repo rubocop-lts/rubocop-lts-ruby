@@ -3,18 +3,9 @@
     {
       "file": "CHANGELOG.md",
       "lines": [
-        29,
-        101,
-        117
-      ]
-    }
-  ],
-  "- [kc] kettle-jem/template: updated 5 project files:\n- dependencies (3)": [
-    {
-      "file": "CHANGELOG.md",
-      "lines": [
-        25,
-        120
+        31,
+        103,
+        119
       ]
     }
   ],
@@ -22,17 +13,8 @@
     {
       "file": "CHANGELOG.md",
       "lines": [
-        84,
-        105
-      ]
-    }
-  ],
-  "- dependencies (3)\n- other (2)": [
-    {
-      "file": "CHANGELOG.md",
-      "lines": [
-        26,
-        121
+        86,
+        107
       ]
     }
   ],
