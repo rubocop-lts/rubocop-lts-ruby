@@ -13,7 +13,7 @@ PATH
     rubocop-lts-ruby (0.1.7)
       lint_roller (~> 1.1)
       rubocop (>= 1.72.1, < 2.0)
-      version_gem (~> 1.1, >= 1.1.15)
+      version_gem (~> 1.1, >= 1.1.17)
 
 GEM
   remote: https://gem.coop/
@@ -405,7 +405,7 @@ GEM
       parallel (~> 1.10)
       rainbow (>= 2.2.2, < 4.0)
       rubocop (~> 1.0)
-    rubocop-lts (24.2.3)
+    rubocop-lts (24.2.6)
       rubocop-ruby3_2 (~> 3.0, >= 3.0.8)
       standard-rubocop-lts (~> 2.0, >= 2.0.13)
       version_gem (~> 1.1, >= 1.1.15)
@@ -611,35 +611,35 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  addressable (>= 2.8, < 3)
-  anonymous_loader (~> 0.1, >= 0.1.3)
+  addressable (>= 2.10.0, < 3)
+  anonymous_loader (~> 0.1, >= 0.1.5)
   appraisal2 (~> 3.2, >= 3.2.6)
   appraisal2-rubocop (~> 1.0, >= 1.0.5)
   benchmark (~> 0.5, >= 0.5.0)
   bundler-audit (~> 0.9.3)
   cgi (~> 0.5)
-  debug (>= 1.1)
+  debug (>= 1.11.1)
   erb (~> 6.0, >= 6.0.7)
-  gem_bench (~> 2.0, >= 2.0.5)
-  gitmoji-regex (~> 2.0, >= 2.0.15)
+  gem_bench (~> 2.0, >= 2.0.6)
+  gitmoji-regex (~> 2.0, >= 2.0.17)
   irb (~> 1.17)
-  kettle-changelog (~> 1.0, >= 1.0.13)
-  kettle-dev (~> 3.1, >= 3.1.21)
-  kettle-family (~> 1.3, >= 1.3.29)
-  kettle-soup-cover (~> 3.0, >= 3.0.13)
-  kettle-test (~> 2.0, >= 2.0.27)
-  kramdown (~> 2.5, >= 2.5.2)
+  kettle-changelog (~> 1.0, >= 1.0.21)
+  kettle-dev (~> 3.1, >= 3.1.33)
+  kettle-family (~> 1.3, >= 1.3.52)
+  kettle-soup-cover (~> 3.0, >= 3.0.17)
+  kettle-test (~> 2.0, >= 2.0.30)
+  kramdown (~> 2.6, >= 2.6.1)
   kramdown-parser-gfm (~> 1.1)
   mutex_m (~> 0.2)
   nomono (~> 1.1, >= 1.1.18)
-  ostruct (~> 0.6)
+  ostruct (~> 0.6, >= 0.6.1)
   rake (~> 13.0)
-  rbs (>= 3.0)
+  rbs (>= 4.2.0)
   reek (~> 6.6, >= 6.6.0)
-  require_bench (~> 1.0, >= 1.0.4)
+  require_bench (~> 1.0, >= 1.0.5)
   rubocop-gradual (~> 0.4, >= 0.4.0)
   rubocop-lts (~> 24.2, >= 24.2.3)
-  rubocop-lts-rspec (~> 1.0, >= 1.0.7)
+  rubocop-lts-rspec (~> 1.0, >= 1.0.8)
   rubocop-lts-ruby!
   rubocop-minitest (~> 0.41, >= 0.41.0)
   rubocop-on-rbs (~> 2.2, >= 2.2.0)
@@ -647,17 +647,17 @@ DEPENDENCIES
   rubocop-ruby3_2 (~> 3.0, >= 3.0.8)
   ruby-progressbar (~> 1.13)
   standard (~> 1.57, >= 1.57.0)
-  stone_checksums (~> 1.0, >= 1.0.9)
-  stringio (>= 3.0)
-  turbo_tests2 (~> 4.0, >= 4.0.0)
+  stone_checksums (~> 1.0, >= 1.0.11)
+  stringio (>= 3.2.0)
+  turbo_tests2 (~> 4.0, >= 4.0.2)
   webrick (~> 1.9)
-  yaml-converter (~> 0.2, >= 0.2.7)
-  yard (~> 0.9, >= 0.9.45)
-  yard-fence (~> 0.9, >= 0.9.10)
+  yaml-converter (~> 0.2, >= 0.2.8)
+  yard (~> 0.9, >= 0.9.46)
+  yard-fence (~> 0.9, >= 0.9.12)
   yard-junk (~> 0.1, >= 0.1.0)
-  yard-lint (~> 1.12, >= 1.12.0)
+  yard-lint (~> 1.15, >= 1.15.0)
   yard-relative_markdown_links (~> 0.6)
-  yard-timekeeper (~> 0.2, >= 0.2.9)
+  yard-timekeeper (~> 0.2, >= 0.2.11)
   yard-yaml (~> 0.2, >= 0.2.6)
 
 CHECKSUMS
@@ -783,7 +783,7 @@ CHECKSUMS
   rubocop-env (0.1.0) sha256=5ab9a259e71822bf514c8e900a9b68cc2f74ccc87d5493efcd03213f3068e718
   rubocop-factory_bot (2.28.0) sha256=4b17fc02124444173317e131759d195b0d762844a71a29fe8139c1105d92f0cb
   rubocop-gradual (0.4.0) sha256=9c7e584e6fef6c2539266a193a4572c970c22f99046fd6b0305bdde6228f96ad
-  rubocop-lts (24.2.3) sha256=510ca38a90393c7c5cac0e0defa35151805797b1ff9a2d130b649c20c2ca0842
+  rubocop-lts (24.2.6) sha256=5005d3300ab9ec7e4ddf5999da3ec7d8eea60d428d86732a793e6a5ad69fc4da
   rubocop-lts-rspec (1.0.8) sha256=3e23cf40e31f23771e5dcdc9169601e6f69fb92ec88033fc591be9216a8a254f
   rubocop-lts-ruby (0.1.7)
   rubocop-md (2.0.4) sha256=0d076b6b5e99dea2ddc928c4bd702497decb9a8400da7808091e02ebcafcfb93
