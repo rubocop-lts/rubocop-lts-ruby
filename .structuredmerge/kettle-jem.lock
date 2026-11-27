@@ -58,6 +58,7 @@ template_state:
     - ".simplecov"
     - AGENTS.md
     - Appraisals
+    - Gemfile.lock
     - README.md
     - bin/kettle-rebase
     - gemfiles/current.gemfile
@@ -635,7 +636,7 @@ files:
   CHANGELOG.md:
     recipe: template_source_application_CHANGELOG_md
     action: write
-    dest_sha256: 628443be506d79cbf2d312a2ba217c7f74025c40bfc5caf017b2fd3ad380b0a6
+    dest_sha256: f5184b3acee90ddf62a367ffc28c0c7cd7360a53f9f0e2fcad6ca3f8e74d160c
     input_fingerprint: 37438aa6c4fdd4f9db516dca892f4a10438568200b4aa87ee87d88c74e81165f
     template_sources:
     - CHANGELOG.md.example
